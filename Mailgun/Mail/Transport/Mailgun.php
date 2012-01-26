@@ -75,7 +75,10 @@ class Mailgun_Mail_Transport_Mailgun extends Zend_Mail_Transport_Abstract
 
 		$response = $client->request();
 
-		Zend_Debug::dump($response->getStatus());
-		Zend_Debug::dump($response);
+		if($response->getStatus() != 200)
+		{
+			throw new Exception("Mail not sent - Mailgun returned ".$response->getStatus()
+			." ".$response->getMessage());
+		}
 	}
 }
