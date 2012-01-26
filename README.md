@@ -1,10 +1,12 @@
-# Zend_Framework mail transport drop-in replacement for Mailgun
+# Zend Framework Mail transport drop in replacement for Mailgun
 This is an easy way to send emails from within your Zend Framework application
-over the Mailgun API.
+using the Mailgun API.
 
-All you have to do is get the repo and add the Mailgun folder to your project.
+It registers Mailgun as the default transport. All you have to do in your code
+is to change the application config and add the Mailgun files to your libraries
+folder.
 
-Also make sure to add these lines to your application.ini settings:
+Make these additions to your application.ini file:
 
     ; ------------------------------------------------------------------------------
     ; Mailgun configuration
@@ -15,6 +17,9 @@ Also make sure to add these lines to your application.ini settings:
     resources.mailgun.key = "" ; Add your API key here
     resources.mailgun.domain = "" ; Add the domain you would like to send
 		messages over here
+
+It will register a resource plugin that sets Mailgun as your default transport
+for all emails.
 
 
 ## Todo
